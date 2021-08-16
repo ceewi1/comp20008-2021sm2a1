@@ -21,6 +21,22 @@ def csvVerifier(tasknum, path, answer):
     except:
         print('Unable to open ' + path + '.  File may not exist')
 
+def task9verifier(tasknum, path, answer):
+    try:
+        taskout = pd.read_csv(path).values.tolist()
+        func = lambda x: round(x,4)
+        taskout = [[sublst[0], sublst[1], round(sublst[2], 4)] for sublst in taskout]
+        answer = [[sublst[0], sublst[1], round(sublst[2], 4)] for sublst in answer]
+        if taskout == answer:
+            print('Task ' + tasknum + ' Correct')
+        else:
+            print('Error in Task ' + tasknum + '.  Program produced:')
+            print(taskout)
+            print('Expected:')
+            print(answer)
+    except:
+        print('Unable to open ' + path + '.  File may not exist')
+
 def verifytask1():
     task1out = task1()
     answer = ['ARS', 'BOU', 'BHA', 'BUR', 'CAR', 'CHE', 'CRY', 'EVE', 'FUL', 'HUD', 'LEI', 'LIV', 'MCI', 'MUN', 'NEW', 'SOU', 'TOT', 'WAT', 'WHU', 'WOL']
@@ -94,7 +110,7 @@ def verifytask7():
         print('task7.png not produced')
 
 def verifytask8():
-    filename = 'data\\football\\001.txt'
+    filename = 'data/football/001.txt'
     taskout = task8(filename)
     answer=['man', 'utd', 'stroll', 'cup', 'win', 'wayne', 'rooney', 'made', 'winning', 'return', 'everton', 'manchester', 'united', 'cruised', 'fa', 'cup', 'quarter', 'finals', 'rooney', 'received', 'hostile', 'reception', 'goals', 'half', 'quinton', 'fortune', 'cristiano', 'ronaldo', 'silenced', 'jeers', 'goodison', 'park', 'fortune', 'headed', 'home', 'minutes', 'ronaldo', 'scored', 'nigel', 'martyn', 'parried', 'paul', 'scholes', 'free', 'kick', 'marcus', 'bent', 'missed', 'everton', 'best', 'chance', 'roy', 'carroll', 'later', 'struck', 'missile', 'saved', 'feet', 'rooney', 'return', 'always', 'going', 'potential', 'flashpoint', 'involved', 'angry', 'exchange', 'spectator', 'even', 'kick', 'rooney', 'every', 'touch', 'met', 'deafening', 'chorus', 'jeers', 'crowd', 'idolised', 'year', 'old', 'everton', 'started', 'brightly', 'fortune', 'needed', 'alert', 'scramble', 'away', 'header', 'bent', 'near', 'goal', 'line', 'cue', 'united', 'take', 'complete', 'control', 'supreme', 'passing', 'display', 'goodison', 'park', 'pitch', 'cutting', 'fortune', 'gave', 'united', 'lead', 'minutes', 'rising', 'meet', 'ronaldo', 'cross', 'eight', 'yards', 'portuguese', 'youngster', 'allowed', 'much', 'time', 'space', 'hapless', 'gary', 'naysmith', 'united', 'dominated', 'without', 'creating', 'many', 'clear', 'cut', 'chances', 'almost', 'paid', 'price', 'making', 'domination', 'two', 'minutes', 'half', 'time', 'mikel', 'arteta', 'played', 'superb', 'ball', 'area', 'bent', 'played', 'onside', 'gabriel', 'heintze', 'hesitated', 'carroll', 'plunged', 'fee', 'save', 'united', 'almost', 'doubled', 'lead', 'minutes', 'ronaldo', 'low', 'drive', 'yards', 'took', 'deflection', 'tony', 'hibbert', 'martyn', 'dived', 'save', 'brilliantly', 'martyn', 'came', 'everton', 'rescue', 'three', 'minutes', 'later', 'rooney', 'big', 'moment', 'almost', 'arrived', 'raced', 'clean', 'veteran', 'keeper', 'outstanding', 'form', 'nothing', 'martyn', 'could', 'united', 'doubled', 'lead', 'minutes', 'doubled', 'advantage', 'scholes', 'free', 'kick', 'took', 'deflection', 'martyn', 'could', 'parry', 'ball', 'ronaldo', 'reacted', 'first', 'score', 'easily', 'everton', 'problems', 'worsened', 'james', 'mcfadden', 'limped', 'injury', 'may', 'trouble', 'ahead', 'everton', 'goalkeeper', 'carroll', 'required', 'treatment', 'struck', 'head', 'missile', 'thrown', 'behind', 'goal', 'rooney', 'desperate', 'search', 'goal', 'return', 'everton', 'halted', 'martyn', 'injury', 'time', 'outpaced', 'stubbs', 'martyn', 'denied', 'england', 'striker', 'manchester', 'united', 'coach', 'sir', 'alex', 'ferguson', 'fantastic', 'performance', 'us', 'fairness', 'think', 'everton', 'missed', 'couple', 'players', 'got', 'young', 'players', 'boy', 'ronaldo', 'fantastic', 'player', 'persistent', 'never', 'gives', 'know', 'many', 'fouls', 'gets', 'wants', 'ball', 'truly', 'fabulous', 'player', 'everton', 'martyn', 'hibbert', 'yobo', 'stubbs', 'naysmith', 'osman', 'carsley', 'arteta', 'kilbane', 'mcfadden', 'bent', 'subs', 'wright', 'pistone', 'weir', 'plessis', 'vaughan', 'manchester', 'united', 'carroll', 'gary', 'neville', 'brown', 'ferdinand', 'heinze', 'ronaldo', 'phil', 'neville', 'keane', 'scholes', 'fortune', 'rooney', 'subs', 'howard', 'giggs', 'smith', 'miller', 'spector', 'referee', 'styles', 'hampshire']
     if taskout == answer:
@@ -111,7 +127,7 @@ def verifytask9():
         os.remove(filename)
     task9()
     answer = [['003.txt', '210.txt', 1.0000000000000002], ['163.txt', '164.txt', 1.0000000000000002], ['158.txt', '161.txt', 1.0], ['087.txt', '088.txt', 1.0], ['018.txt', '027.txt', 0.99898981295962], ['189.txt', '205.txt', 0.9066406430977976], ['002.txt', '262.txt', 0.7977968482141655], ['132.txt', '138.txt', 0.7796526739153473], ['018.txt', '024.txt', 0.6665301812555335], ['024.txt', '027.txt', 0.6654451540811809]]
-    csvVerifier('9', filename, answer)
+    task9verifier('9', filename, answer)
     
 if taskID == 'task1':
     verifytask1()
