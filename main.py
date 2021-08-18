@@ -26,6 +26,10 @@ def task9verifier(tasknum, path, answer):
         taskout = pd.read_csv(path).values.tolist()
         taskout = [sorted([sublst[0], sublst[1]]) + [round(sublst[2], 4)] for sublst in taskout]   
         answer = [sorted([sublst[0], sublst[1]]) + [round(sublst[2], 4)] for sublst in answer]
+        
+        taskout = [sublst for sublst in taskout if sublst[2] < 0.97]
+        answer = [sublst for sublst in answer if sublst[2] < 0.97]
+
         if taskout == answer:
             print('Task ' + tasknum + ' Correct')
         else:
