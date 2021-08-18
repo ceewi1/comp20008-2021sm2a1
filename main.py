@@ -24,9 +24,8 @@ def csvVerifier(tasknum, path, answer):
 def task9verifier(tasknum, path, answer):
     try:
         taskout = pd.read_csv(path).values.tolist()
-        func = lambda x: round(x,4)
-        taskout = [[sublst[0], sublst[1], round(sublst[2], 4)] for sublst in taskout]
-        answer = [[sublst[0], sublst[1], round(sublst[2], 4)] for sublst in answer]
+        taskout = [sorted([sublst[0], sublst[1]]) + [round(sublst[2], 4)] for sublst in taskout]   
+        answer = [sorted([sublst[0], sublst[1]]) + [round(sublst[2], 4)] for sublst in answer]
         if taskout == answer:
             print('Task ' + tasknum + ' Correct')
         else:
@@ -39,7 +38,7 @@ def task9verifier(tasknum, path, answer):
 
 def verifytask1():
     task1out = task1()
-    answer = ['ARS', 'BOU', 'BHA', 'BUR', 'CAR', 'CHE', 'CRY', 'EVE', 'FUL', 'HUD', 'LEI', 'LIV', 'MCI', 'MUN', 'NEW', 'SOU', 'TOT', 'WAT', 'WHU', 'WOL']
+    answer = ['ARS', 'BHA', 'BOU', 'BUR', 'CAR', 'CHE', 'CRY', 'EVE', 'FUL', 'HUD', 'LEI', 'LIV', 'MCI', 'MUN', 'NEW', 'SOU', 'TOT', 'WAT', 'WHU', 'WOL']
     if task1out == answer:
         print('Task 1 Correct')
     else:
