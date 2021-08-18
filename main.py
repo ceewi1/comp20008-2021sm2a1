@@ -18,9 +18,6 @@ def csvVerifier(tasknum, path, answer):
             print(taskout)
             print('Expected:')
             print(answer)
-            dif = li_dif = [i for i in taskout + answer if i not in answer or i not in taskout]
-            print('Difference:')
-            print(dif)
     except:
         print('Unable to open ' + path + '.  File may not exist')
 
